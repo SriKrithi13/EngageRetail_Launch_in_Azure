@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>{{ title }}</title>
+  <style>
+	.eachchart{
+display:inline;
+float:left;
+ box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+  margin: 30px 20px 20px 10px;
+  width: calc(45% - 40px);
+  padding: 10px;
+  text-align: center;
+  float: left;
+}
+@media (max-width: 768px) {
+  .card {
+    margin: 10px 20px;
+    width: calc(100% - 40px);
+  }
+  .card:first-child {
+    margin-top: 20px;
+  }
+}
+.headings{
+font-size:20px
+}
+#dashboard{
+	color:black;
+	box-sizing: border-box;
+    padding: 10px;
+    width: 72.5px;
+    height: 72.5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 50%;
+    color: black;
+    text-align: center;
+    font-size: 2.2em;
+    transition: all 1s;
+}
+  </style>
+</head>
+
+
+
+<body>
+ <div>
+ <a id="dashboard" class="fa fa-home" href="/dashboard"><button><b>Home</b></button></a>
+ </div>
+<div class='eachchart'>
+<h1 class='headings'>{{title}}</h1>
+  <canvas id="myChart"></canvas>
+ </div>
+ 
+ <div class='eachchart'>
+ <h1 class='headings'>{{titletwo}}</h1>
+  <canvas id="myChartTwo"></canvas>
+ </div>
+
+ <div class='eachchart'>
+ <h1 class='headings'>{{titlethree}}</h1>
+  <canvas id="myChartThree"></canvas>
+ </div>
+ 
+ <div class='eachchart'>
+ <h1 class='headings'>{{titlefour}}</h1>
+  <canvas id="myChartFour"></canvas>
+ </div>
+ 
+ </body>
+ 
+<head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  
+const datatwo = {
+  labels : [
+          {% for item in labelstwo %}
+           "{{ item }}",
+          {% endfor %}
+		],
+  datasets: [{
+    type: 'bar',
+    label: 'FOOD',
+    data: [
+            {% for item in valuestwo %}
+               "{{ item }}",
+              {% endfor %}
+	    ],
+    borderColor: 'rgb(255, 99, 132)',
+    backgroundColor: 'rgba(255, 99, 132, 0.2)'
+  }, {
+    type: 'bar',
+    label: 'Non-Food',
+    data: [
+            {% for item in valuestwotwo %}
+               "{{ item }}",
+              {% endfor %}
+	    ],
+    fill: false,
+    borderColor: 'rgb(54, 162, 235)'
+  }]
+};
+const ctx = document.getElementById('myChartTwo');
+  let chart = new Chart(ctx, {
+    type: 'line',
+    data: datatwo
+});	
+
+
+const data = {
+  labels : [
+          {% for item in labels %}
+           "{{ item }}",
+          {% endfor %}
+		],
+  datasets: [{
+    type: 'bar',
+    label: 'SPENT',
+    data: [
+            {% for item in values %}
+               "{{ item }}",
+              {% endfor %}
+	    ],
+    borderColor: 'rgb(255, 99, 132)',
+    backgroundColor: 'rgba(255, 99, 132, 0.2)'
+  }]
+};
+const ctxnew=document.getElementById('myChart');
+let chartnew = new Chart(ctxnew, {
+    type: 'line',
+    data: data
+});
+
+
+const datathree = {
+  labels : [
+          {% for item in labelsthree %}
+           "{{ item }}",
+          {% endfor %}
+		],
+  datasets: [{
+    type: 'bar',
+    label: 'SPENT(COMMODITY-FOOD)',
+    data: [
+            {% for item in valuesthree %}
+               "{{ item }}",
+              {% endfor %}
+	    ],
+    borderColor: 'rgb(255, 99, 132)',
+    backgroundColor: 'rgba(255, 99, 132, 0.2)'
+  }]
+};
+const ctxnewthree=document.getElementById('myChartThree');
+let chartnewthree = new Chart(ctxnewthree, {
+    type: 'line',
+    data: datathree
+});
+
+
+const datafour = {
+  labels : [
+          {% for item in labelsfour %}
+           "{{ item }}",
+          {% endfor %}
+		],
+  datasets: [{
+    type: 'line',
+    label: 'SPENT',
+    data: [
+            {% for item in valuesfour %}
+               "{{ item }}",
+              {% endfor %}
+	    ],
+    borderColor: 'rgb(255, 99, 132)',
+    backgroundColor: 'rgba(255, 99, 132, 0.2)'
+  }]
+};
+const ctxnewfour=document.getElementById('myChartFour');
+let chartnewfour = new Chart(ctxnewfour, {
+    type: 'line',
+    data: datafour
+});
+
+</script>
+</head>
+

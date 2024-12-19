@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <title>Final Project Dashboard</title>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <style>
+	@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  display: block;
+  background: #f8faf5;
+}
+.new{
+  
+  text-align: center;
+  
+
+}
+.new h6{
+  font-size: 50px;
+  margin: 10px 10px 0 10px;
+}
+.card {
+  width: 50%;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+  text-align: center;
+  color: black;
+}
+@media (max-width: 768px) {
+  .card {
+    margin: 10px 20px;
+    width: 20px;
+  }
+  .card:first-child {
+    margin-top: 20px;
+  }
+}
+.card .title {
+  font-size: 25px;
+}
+
+.card .features ul {
+  padding: 0;
+  margin: 20px 0 50px 0;
+  list-style-type: none;
+}
+.card .features ul li {
+  margin: 10px 0;
+  font-size: 14px;
+}
+.card .features ul li span {
+  border-bottom: 2px dotted #e5fab6;
+}
+.card .btn {
+  display: block;
+  color: black;
+  padding: 15px 20px;
+  margin: 20px 0;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.9);
+  transition: all 200ms ease-in-out;
+  text-decoration: none;
+}
+.card .btn:hover {
+  background: #b8b6b6;
+}
+ </style>
+</head>
+  <body>
+    <div class="new"><h6>Dashboard</h6></div>
+  <br/>
+  <br/>
+  <br/>
+<div class="card">
+
+  <div class="title">Search HHM</div>
+
+  <div class="features">
+    <ul>
+      <li>1) Display page to see <span>Sample Data Pull for HSHD_NUM #10</span></li><br>
+	  <li>2) Allow to <span>search on  DATA PULLs based on Hshd_num</span>.Sort by Hshd_num,Basket_num,Date,<br>Product_num,Department,Commodity</span></li>
+    </ul>
+  </div><!--/features-->
+
+  <a href="{{url_for('searchhhm')}}" class="btn">Check it out</a>
+
+</div><!--/card-->
+
+  
+<div class="card">
+
+  <div class="title">Web Page with Dashboard</div>
+
+  <div class="features">
+    <ul>
+      <li>1) Which <span>demographic factors</span> (e.g. household size, presence of children, income) appear to <span>affect customer engagement?</span></li><br>
+      <li>2) <span>Choosing Income as Demographic factor</span></li>
+	  <li>      </li>
+    </ul>
+  </div><!--/features-->
+
+  <a href="{{url_for('loadDashboard')}}" class="btn">Check it out</a>
+
+</div><!--/card-->
+
+  
+<div class="card">
+
+  <div class="title">Load the most current Data sets</div>
+
+  <div class="features">
+    <ul>
+      <li>1)We can <span>load the most current Data sets</span> for Transactions, Households, and Products</li><br>
+      <li>2)Supports Data upload only in <span>CSV formats</span></li>
+      
+    </ul>
+  </div><!--/features-->
+
+  <a href="{{url_for('uploaddatasets')}}" class="btn">Check it out</a>
+
+</div><!--/card-->
+
+
+
+
+
+ </body>
+</html>

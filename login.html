@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <title>Login Page</title>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <style>
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.login-page {
+  width: 360px;
+}
+.form {
+  position: relative;
+  z-index: 1;
+  max-width: 360px;
+}
+.form input {
+  display: block;
+  width: 100%;
+  border: 1;
+  outline: 1;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  text-transform: uppercase;
+  outline: 1;
+  width: 100%;
+  border: 1px solid black;
+  padding: 16px;
+  font-size: 17px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form .message {
+  margin: 15px 0 0;
+  color: #000000;
+  font-size: 16px;
+}
+
+ </style>
+</head>
+  <body>
+<div class="login-page">
+<div class="form">
+    <form class="login-form" action="{{url_for('login')}}" method="POST">
+	   <h2>Login</h2>
+	   <div><FONT COLOR="#FF0000">{{ message }}</FONT></div><br/>
+      <input type="text" name="username" placeholder="Username"/>
+      <input type="password" name="password" placeholder="Password"/>
+      <button>login</button>
+      <p class="message">New User? <a href="{{url_for('registration')}}">Create an account here</a></p>
+    </form>
+  </div>
+</div>
+  </body>
+</html>

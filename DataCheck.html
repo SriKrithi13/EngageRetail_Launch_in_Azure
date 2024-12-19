@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>{{ title }}</title>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+  <style>
+	.eachchart{
+display:inline;
+float:left;
+ box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+  margin: 10px 20px 20px 20px;
+  width: calc(33.3333% - 40px);
+  padding: 10px;
+  text-align: center;
+  float: left;
+}
+@media (max-width: 768px) {
+  .card {
+    margin: 10px 20px;
+    width: calc(100% - 40px);
+  }
+  .card:first-child {
+    margin-top: 20px;
+  }
+}
+.headings{
+font-size:20px
+}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="eachchart">
+  <canvas id="myChart"></canvas>
+  <script>
+  
+const data = {
+  labels: [
+    'January',
+    'February',
+    'March',
+    'April'
+  ],
+  datasets: [{
+    type: 'bar',
+    label: 'FOOD',
+    data: [10, 20, 30, 40],
+    borderColor: 'rgb(255, 99, 132)',
+    backgroundColor: 'rgba(255, 99, 132, 0.2)'
+  }, {
+    type: 'bar',
+    label: 'Non-Food',
+    data: [50, 50, 50, 50],
+    fill: false,
+    borderColor: 'rgb(54, 162, 235)'
+  }]
+};
+const ctx = document.getElementById('myChart');
+  let chart = new Chart(ctx, {
+    type: 'line',
+    data: data
+});		
+</script>
+</div>
+
+<div class="eachchart">
+  <canvas id="myChart2"></canvas>
+  <script>
+  
+const datatwo = {
+  labelstwo: [
+    'January',
+    'February',
+    'March',
+    'April'
+  ],
+  datasetstwo: [{
+    type: 'bar',
+    label: 'FOOD',
+    data: [10, 20, 30, 40],
+    borderColor: 'rgb(255, 99, 132)',
+    backgroundColor: 'rgba(255, 99, 132, 0.2)'
+  }, {
+    type: 'bar',
+    label: 'Non-Food',
+    data: [50, 50, 50, 50],
+    fill: false,
+    borderColor: 'rgb(54, 162, 235)'
+  }]
+};
+const ctxnew = document.getElementById('myChart2');
+  let charttwo = new Chart(ctxnew, {
+    type: 'line',
+    data: datatwo
+});	
+</script>
+</div>
+</body>
+</html>
+
+ 
